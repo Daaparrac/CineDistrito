@@ -1,0 +1,48 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/assets/banner.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+</div>
+<div class=" bg-secondary text-white pb-1 pt-1">
+    <div class="container">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Usted esta en:</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+          <option>Armenia</option>
+          <option>Bogotá</option>
+          <option>Bucaramanga</option>
+          <option>Cali</option>
+          <option>Cucuta</option>
+        </select>
+        </div>
+    </div>
+</div>
+<div class="container mt-3">
+    <h1 class="lead">PREVENTA / PROXIMO ESTRENO</h1>
+    <div class="row">
+        <div class="col" *ngFor="let item of peliculas">
+            <div class="card">
+                <img [src]="item.img" class="card-img-top" alt="...">
+            </div>
+        </div>
+    </div>
+    <br>
+    <h1 class="lead">NUEVAS</h1>
+    <div class="row">
+        <div class="col" *ngFor="let item of peliculas2">
+            <div class="card">
+                <img [src]="item.img" class="card-img-top" alt="...">
+            </div>
+        </div>
+    </div>
+    <br>
+    <h1 class="lead">PROMOCIONES DE NUESTROS ALIADOS</h1>
+    <div class="row">
+        <div class="col">
+            <img src="/assets/amex.png" class="card-img-top" style="max-width: 400px;">
+        </div>
+    </div>
+    <br>
+</div>
