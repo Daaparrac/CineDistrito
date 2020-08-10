@@ -5,16 +5,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentesModule } from './componentes/componentes.module';
 import { HomeComponent } from './pages/home/home.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { NewTheaterComponent } from './pages/admin/new/new-theater/new-theater.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchTheaterComponent } from './pages/admin/search/search-theater/search-theater.component';
+import { NewMovieComponent } from './pages/admin/new/new-movie/new-movie.component';
+import { SearchMovieComponent } from './pages/admin/search/search-movie/search-movie.component';
+import { NavbarAdminComponent } from './componentes/navbar-admin/navbar-admin.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent,
+    NewTheaterComponent,
+    SearchTheaterComponent,
+    NewMovieComponent,
+    SearchMovieComponent,
+    NavbarAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentesModule
+    ComponentesModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -127,6 +127,6 @@
   },
   "defaultProject": "cine2020",
   "cli": {
-    "analytics": "e4407a9c-5e91-4929-8fb1-9f201a5e140d"
+    "analytics": false
   }
 }

@@ -1,0 +1,34 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container">
+    <h1 class="display-4">Nueva Pelicula</h1>
+    <form (ngSubmit)="guardar(newPelicula)" #newPelicula="ngForm">
+        <div class="form-row">
+            <label>Titulo:</label>
+            <input class="form-control" [(ngModel)]="pelicula.title" name="pelicula">
+        </div>
+        <div class="form-row">
+            <label>Clasificación:</label>
+            <select class="form-control" [(ngModel)]="pelicula.clasificacion" name="clasificacion">
+            <option> T - (Apta para todo publico)</option>
+            <option>7 - (Recomendada para mayores de 7 años)</option>
+            <option>PG13 - (Apta para mayores de 13 años)</option>
+            <option>R - (Apta para mayores de 18 años)</option>
+            <option>X - (Pornografía) Mayores de 18</option>
+        </select>
+        </div>
+        <div class="form-row">
+            <label>Descripción:</label>
+            <textarea class="form-control" [(ngModel)]="pelicula.des" name="des"></textarea>
+        </div>
+        <div class="form-row">
+            <label>Imagen:</label>
+            <input class="form-control" [(ngModel)]="pelicula.img" name="img">
+        </div>
+        <div class="form-row">
+            <label>Reparto:</label>
+            <input class="form-control" [(ngModel)]="pelicula.reparto" name="reparto">
+        </div>
+        <br>
+        <button class="btn btn-danger btn-block" type="submit">Guardar</button>
+    </form>
+</div>
