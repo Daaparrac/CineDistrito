@@ -1,0 +1,30 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container mt-5">
+    <h1 class="display-4">Horarios</h1>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Horario</th>
+                <th scope="col">Teatro</th>
+                <th scope="col">Pelicula</th>
+                <th scope="col">Sala</th>
+                <th scope="col">Tools</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of horarios; let i = index">
+                <th scope="row">{{ i+1 }}</th>
+                <td>{{ item.hora }}</td>
+                <td>{{ item.sala.teatro.nombre}}</td>
+                <td>{{ item.pelicula.title }}</td>
+                <td>{{ item.sala.codigo_sala }}</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm form-control" *ngIf="item.estado=='Activo'" (click)="update(item)">Desactivar</button>
+                    <button type="button" class="btn btn-success btn-sm form-control" *ngIf="item.estado=='Desactivado'" (click)="update(item)">Activar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

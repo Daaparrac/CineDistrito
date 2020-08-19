@@ -1,1 +1,20 @@
-<p>new-theater works!</p>
+<app-navbar-admin></app-navbar-admin>
+<div class="container">
+    <h1 class="display-4">Nuevo Teatro</h1>
+    <form (ngSubmit)="guardar(newTeatro)" #newTeatro="ngForm">
+        <div class="form-row">
+            <label>Nombre:</label>
+            <input class="form-control" [(ngModel)]="teatro.nombre" name="nombre">
+        </div>
+        <div class="form-row">
+            <label>Dirección:</label>
+            <input class="form-control" [(ngModel)]="teatro.direccion" name="direccion">
+        </div>
+        <div class="form-row">
+            <label>Telefono:</label>
+            <input class="form-control" [(ngModel)]="teatro.telefono" name="telefono">
+        </div>
+        <br>
+        <button class="btn btn-danger btn-block" type="submit">Guardar</button>
+    </form>
+</div>

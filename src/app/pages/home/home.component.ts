@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { peliculasModel } from '../../models/peliculas.model';
 import { MoviesService } from '../../services/movies.service';
+import { SalasModel } from '../../models/salas.model';
+import { RestService } from '../../services/rest.service';
+import { TheaterModel } from '../../models/theater.model';
 
 @Component({
   selector: 'app-home',
@@ -7,48 +11,18 @@ import { MoviesService } from '../../services/movies.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private Movies: MoviesService) {}
-  peliculas = [];
+  peliculas: peliculasModel[] = [];
+
+  teatro: TheaterModel[] = [];
+  constructor(
+    private _moviesService: MoviesService,
+    private _rest: RestService
+  ) {}
+
   ngOnInit(): void {
-    this.Movies.getMovies().subscribe((data) => (this.peliculas = data));
+    this._moviesService
+      .getMovies()
+      .subscribe((data) => (this.peliculas = data));
+    this._rest.getAllTeatros().subscribe((res) => (this.teatro = res));
   }
-  /*
-  peliculas = [
-    {
-      "img" : "assets/pe1.jpg"
-    },
-    {
-      "img" : "assets/pe2.jpg"
-    },
-    {
-      "img" : "assets/pe3.jpg"
-    },
-    {
-      "img" : "assets/pe4.jpg"
-    },
-    {
-      "img" : "assets/pe5.jpg"
-    },
-    {
-      "img" : "assets/pe6.jpg"
-    }
-  ];
-*/
-  peliculas2 = [
-    {
-      img: 'assets/pe7.jpg',
-    },
-    {
-      img: 'assets/pe8.jpg',
-    },
-    {
-      img: 'assets/pe9.jpg',
-    },
-    {
-      img: 'assets/pe10.jpg',
-    },
-    {
-      img: 'assets/pe11.jpg',
-    },
-  ];
 }

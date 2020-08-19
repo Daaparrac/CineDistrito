@@ -6,18 +6,18 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nuevo</a>
         <div class="dropdown-menu">
             <a class="dropdown-item" [routerLink]="['/admin/new/movie/new']">Pelicula</a>
-            <a class="dropdown-item" href="#">Teatro</a>
-            <a class="dropdown-item" href="#">Sala</a>
-            <a class="dropdown-item" href="#">Horario</a>
+            <a class="dropdown-item" [routerLink]="['/admin/new/theater/new']">Teatro</a>
+            <a class="dropdown-item" [routerLink]="['/admin/new/room/new']">Sala</a>
+            <a class="dropdown-item" [routerLink]="['/admin/new/hour/new']">Horario</a>
         </div>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Consultar</a>
         <div class="dropdown-menu">
             <a class="dropdown-item" [routerLink]="['/admin/search/movie']">Pelicula</a>
-            <a class="dropdown-item" href="#">Teatro</a>
-            <a class="dropdown-item" href="#">Sala</a>
-            <a class="dropdown-item" href="#">Horario</a>
+            <a class="dropdown-item" [routerLink]="['/admin/search/theater']">Teatro</a>
+            <a class="dropdown-item" [routerLink]="['/admin/search/room']">Sala</a>
+            <a class="dropdown-item" [routerLink]="['/admin/hour/room']">Horario</a>
         </div>
     </li>
     <li class="nav-item">

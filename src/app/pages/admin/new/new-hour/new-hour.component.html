@@ -1,0 +1,41 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container mt-5">
+    <h1 class="display-4">Nuevo Horario</h1>
+    <hr>
+
+    <div class="alert alert-warning" role="alert" *ngIf="error">
+        <h3>Todos los campos son obligatorios</h3>
+    </div>
+    <form (ngSubmit)="guardar(newHours)" #newHours="ngForm">
+
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="form-group mb-2">
+                    <label for="nombre">Sala:</label>
+                    <ng-select [items]="sala" bindLabel="teatro.nombre" (change)="selectSala($event)"></ng-select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group mb-2">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" class="form-control" [(ngModel)]="horario.fecha" name="fecha" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group mb-2">
+                    <label for="hora">Horario:</label>
+                    <input type="time" class="form-control" [(ngModel)]="horario.hora" name="hora" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group mb-2">
+                    <label for="nombre">Pelicula:</label>
+                    <ng-select [items]="pelicula" bindLabel="title" (change)="selectPelicula($event)"></ng-select>
+                </div>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-danger btn-block">Guardar</button>
+
+    </form>
+</div>

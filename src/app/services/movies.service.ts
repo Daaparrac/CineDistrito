@@ -13,7 +13,7 @@ export class MoviesService {
 
 
   getPelicula(id: string){
-    return this.http.get(`${ environment.url }/Peliculas/${ id}.json`);
+    return this.http.get(`${ environment.url }/Peliculas/${ id }.json`);
   }
 
   getMovies(){

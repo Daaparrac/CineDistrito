@@ -1,0 +1,34 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container mt-5">
+  <h1 class="display-4">Salas</h1>
+  <hr />
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Codigo de la Sala</th>
+        <th scope="col">Teatro</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Telefono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of salas; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ item.codigo_sala }}</td>
+        <td>{{ item.teatro.nombre }}</td>
+        <td>{{ item.teatro.direccion }}</td>
+        <td>{{ item.teatro.telefono }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-info btn-sm form-control"
+            [routerLink]="['/admin/new/room', item.id_sala]"
+          >
+            Editar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

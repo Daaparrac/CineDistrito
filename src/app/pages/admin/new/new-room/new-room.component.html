@@ -1,0 +1,25 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container mt-5">
+    <h1 class="display-4">Nueva Sala</h1>
+    <hr>
+
+    <div class="alert alert-warning" role="alert" *ngIf="error">
+        <h3>Todos los campos son obligatorios</h3>
+    </div>
+    <form (ngSubmit)="guardar(newRooms)" #newRooms="ngForm">
+        <div class="form-row">
+            <label for="nombre">Teatro:</label>
+            <select class="custom-select" [ngModel]="selectedItem" id="id_teatro" (change)="selectTeatro($event)" name="emply" required>
+            <option [value]="item.id_teatro" *ngFor="let item of teatro">{{ item.nombre }}</option>
+            </select>
+
+        </div>
+        <div class="form-row">
+            <label for="codigo_sala">Código de sala:</label>
+            <input type="text" class="form-control" [(ngModel)]="sala.codigo_sala" name="codigo_sala" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-danger btn-block">Guardar</button>
+
+    </form>
+</div>

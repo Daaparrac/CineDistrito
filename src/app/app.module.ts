@@ -13,6 +13,11 @@ import { NewMovieComponent } from './pages/admin/new/new-movie/new-movie.compone
 import { SearchMovieComponent } from './pages/admin/search/search-movie/search-movie.component';
 import { NavbarAdminComponent } from './componentes/navbar-admin/navbar-admin.component';
 import { FormsModule } from '@angular/forms';
+import { NewRoomComponent } from './pages/admin/new/new-room/new-room.component';
+import { SearchRoomComponent } from './pages/admin/search/search-room/search-room.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NewHourComponent } from './pages/admin/new/new-hour/new-hour.component';
+import { SearchHourComponent } from './pages/admin/search/search-hour/search-hour.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +28,20 @@ import { FormsModule } from '@angular/forms';
     SearchTheaterComponent,
     NewMovieComponent,
     SearchMovieComponent,
-    NavbarAdminComponent
+    NavbarAdminComponent,
+    NewRoomComponent,
+    SearchRoomComponent,
+    NewHourComponent,
+    SearchHourComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentesModule,
+    NgSelectModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
