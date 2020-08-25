@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { peliculasModel } from '../models/peliculas.model';
 import { TheaterModel } from '../models/theater.model';
 import { HorarioModel } from '../models/horario.model';
@@ -9,162 +9,184 @@ import { SalasModel } from '../models/salas.model';
 import { reservaModel } from '../models/reserva.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RestService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  putPelicula(pelicula: peliculasModel){
+  putPelicula(pelicula: peliculasModel) {
     const PeliculaTemp = {
-      ...pelicula
+      ...pelicula,
     };
     delete PeliculaTemp.id_pelicula;
-    return this.http.put(`${ environment.url }/Peliculas/${ pelicula.id_pelicula }.json`, PeliculaTemp);
-  }
-
-  postPelicula(pelicula: peliculasModel){
-    return this.http.post(`${ environment.url }/Peliculas.json`, pelicula).pipe(
-      map ( (resp: any) => {
-        pelicula.id_pelicula = resp.name;
-        return pelicula;
-      } )
+    return this.http.put(
+      `${environment.url}/Peliculas/${pelicula.id_pelicula}.json`,
+      PeliculaTemp
     );
   }
 
-  getAllReservas2(nombre_pelicula, fecha){
-    return this.http.get(`${ environment.url }/reservas.json`).pipe(
-      map( res => this.crearArregloReserva2(res, nombre_pelicula, String(fecha))));
+  postPelicula(pelicula: peliculasModel) {
+    return this.http.post(`${environment.url}/Peliculas.json`, pelicula).pipe(
+      map((resp: any) => {
+        pelicula.id_pelicula = resp.name;
+        return pelicula;
+      })
+    );
   }
 
-  getReserva2(id: string){
-    return this.http.get(`${ environment.url }/reservas/${ id }.json`);
+  getAllReservas2(nombre_pelicula, fecha) {
+    return this.http
+      .get(`${environment.url}/reservas.json`)
+      .pipe(
+        map((res) =>
+          this.crearArregloReserva2(res, nombre_pelicula, String(fecha))
+        )
+      );
   }
 
-  getAllTeatros(){
-    return this.http.get(`${ environment.url }/teatro.json`).pipe(
-      map( this.crearArregloTeatro ));
+  getReserva2(id: string) {
+    return this.http.get(`${environment.url}/reservas/${id}.json`);
   }
 
-  getAllHorarios(){
-    return this.http.get(`${ environment.url }/horarios.json`).pipe(
-    map ( this.crearArregloHorarios ))
+  getAllTeatros() {
+    return this.http
+      .get(`${environment.url}/teatro.json`)
+      .pipe(map(this.crearArregloTeatro));
   }
 
-  getAllReservas(){
-    return this.http.get(`${ environment.url }/reservas.json`).pipe(
-      map( this.crearArregloReserva ));
+  getAllHorarios() {
+    return this.http
+      .get(`${environment.url}/horarios.json`)
+      .pipe(map(this.crearArregloHorarios));
   }
 
-  getReserva(id: string){
-    return this.http.get(`${ environment.url }/reservas/${ id }.json`);
+  getAllReservas() {
+    return this.http
+      .get(`${environment.url}/reservas.json`)
+      .pipe(map(this.crearArregloReserva));
   }
 
-  getHorario(id: string){
-    return this.http.get(`${ environment.url }/horarios/${ id }.json`);
+  getReserva(id: string) {
+    return this.http.get(`${environment.url}/reservas/${id}.json`);
   }
 
-  getTeatro(id: string){
-    return this.http.get(`${ environment.url }/teatro/${ id }.json`);
+  getHorario(id: string) {
+    return this.http.get(`${environment.url}/horarios/${id}.json`);
   }
 
-  getAllSalas(){
-    return this.http.get(`${ environment.url }/salas.json`).pipe(
-  map ( this.crearArregloSalas ))
+  getTeatro(id: string) {
+    return this.http.get(`${environment.url}/teatro/${id}.json`);
   }
 
-  getSala(id: string){
-    return this.http.get(`${ environment.url }/salas/${ id }.json`);
+  getAllSalas() {
+    return this.http
+      .get(`${environment.url}/salas.json`)
+      .pipe(map(this.crearArregloSalas));
   }
 
-  PutTeatro(teatro : TheaterModel){
+  getSala(id: string) {
+    return this.http.get(`${environment.url}/salas/${id}.json`);
+  }
+
+  PutTeatro(teatro: TheaterModel) {
     const teatroTemp = {
-      ...teatro
+      ...teatro,
     };
     delete teatroTemp.id_teatro;
-    return this.http.put(`${ environment.url }/teatro/${ teatro.id_teatro }.json`, teatroTemp);
+    return this.http.put(
+      `${environment.url}/teatro/${teatro.id_teatro}.json`,
+      teatroTemp
+    );
   }
 
-  PutSala(sala: SalasModel){
+  PutSala(sala: SalasModel) {
     const salaTemp = {
-      ...sala
+      ...sala,
     };
     delete salaTemp.id_sala;
-    return this.http.put(`${ environment.url }/salas/${ sala.id_sala }.json`, salaTemp);
+    return this.http.put(
+      `${environment.url}/salas/${sala.id_sala}.json`,
+      salaTemp
+    );
   }
 
-  putHorario(horario: HorarioModel){
+  putHorario(horario: HorarioModel) {
     const horarioTemp = {
-      ...horario
+      ...horario,
     };
     delete horarioTemp.id_horario;
-    return this.http.put(`${ environment.url }/horarios/${ horario.id_horario }.json`, horarioTemp);
+    return this.http.put(
+      `${environment.url}/horarios/${horario.id_horario}.json`,
+      horarioTemp
+    );
   }
 
-  PutReserva(reserva : reservaModel){
+  PutReserva(reserva: reservaModel) {
     const reservaTemp = {
-      ...reserva
+      ...reserva,
     };
     delete reservaTemp.id_reserva;
-    return this.http.put(`${ environment.url }/reservas/${ reserva.id_reserva }.json`, reservaTemp);
+    return this.http.put(
+      `${environment.url}/reservas/${reserva.id_reserva}.json`,
+      reservaTemp
+    );
   }
 
-
-  PostTeatro(teatro : TheaterModel){
-    return this.http.post(`${ environment.url }/teatro.json`, teatro).pipe(
-      map( (resp: any) => {
+  PostTeatro(teatro: TheaterModel) {
+    return this.http.post(`${environment.url}/teatro.json`, teatro).pipe(
+      map((resp: any) => {
         teatro.id_teatro = resp.name;
         return teatro;
       })
     );
   }
 
-  PostReserva(reserva : reservaModel){
-    return this.http.post(`${ environment.url }/reservas.json`, reserva).pipe(
-      map( (resp: any) => {
+  PostReserva(reserva: reservaModel) {
+    return this.http.post(`${environment.url}/reservas.json`, reserva).pipe(
+      map((resp: any) => {
         reserva.id_reserva = resp.name;
         return reserva;
       })
     );
   }
 
-  PostHorario(horario: HorarioModel){
-    return this.http.post(`${ environment.url }/horarios.json`, horario).pipe(
-      map ( (resp: any) => {
+  PostHorario(horario: HorarioModel) {
+    return this.http.post(`${environment.url}/horarios.json`, horario).pipe(
+      map((resp: any) => {
         horario.id_horario = resp.name;
         return horario;
-      } )
+      })
     );
   }
 
-  PostSala(sala: SalasModel){
-    return this.http.post(`${ environment.url }/salas.json`, sala).pipe(
-      map ( (resp: any) => {
+  PostSala(sala: SalasModel) {
+    return this.http.post(`${environment.url}/salas.json`, sala).pipe(
+      map((resp: any) => {
         sala.id_sala = resp.name;
         return sala;
-      } )
+      })
     );
   }
 
-  private crearArregloTeatro( teatro: object){
+  private crearArregloTeatro(teatro: object) {
     const teatros: TheaterModel[] = [];
-    if( teatro === null){
+    if (teatro === null) {
       return [];
     }
-    Object.keys(teatro).forEach( key => {
+    Object.keys(teatro).forEach((key) => {
       const teatro2: TheaterModel = teatro[key];
       teatro2.id_teatro = key;
       teatros.push(teatro2);
     });
     return teatros;
   }
-  
-  private crearArregloSalas( sala: object ){
+
+  private crearArregloSalas(sala: object) {
     const salas: SalasModel[] = [];
-    if (sala === null){
+    if (sala === null) {
       return [];
     }
-    Object.keys(sala).forEach(key => {
+    Object.keys(sala).forEach((key) => {
       const sala2: SalasModel = sala[key];
       sala2.id_sala = key;
       salas.push(sala2);
@@ -172,12 +194,12 @@ export class RestService {
     return salas;
   }
 
-  private crearArregloHorarios( horario: object ){
+  private crearArregloHorarios(horario: object) {
     const horarios: HorarioModel[] = [];
-    if (horario === null){
+    if (horario === null) {
       return [];
     }
-    Object.keys(horario).forEach(key => {
+    Object.keys(horario).forEach((key) => {
       const horario2: HorarioModel = horario[key];
       horario2.id_horario = key;
       horarios.push(horario2);
@@ -185,12 +207,12 @@ export class RestService {
     return horarios;
   }
 
-  private crearArregloReserva(reserva: object){
+  private crearArregloReserva(reserva: object) {
     const reservas: reservaModel[] = [];
-    if( reserva === null){
+    if (reserva === null) {
       return [];
     }
-    Object.keys(reserva).forEach( key => {
+    Object.keys(reserva).forEach((key) => {
       const reserva2: reservaModel = reserva[key];
       reserva2.id_reserva = key;
       reservas.push(reserva2);
@@ -198,24 +220,30 @@ export class RestService {
     return reservas;
   }
 
-  private crearArregloReserva2(reserva: object, nombre_pelicula, fecha){
+  private crearArregloReserva2(reserva: object, nombre_pelicula, fecha) {
     const reservas: reservaModel[] = [];
-    if( reserva === null){
+    if (reserva === null) {
       return [];
     }
-    Object.keys(reserva).forEach( key => {
+    Object.keys(reserva).forEach((key) => {
       const reserva2: reservaModel = reserva[key];
       reserva2.id_reserva = key;
       reservas.push(reserva2);
     });
     const resultPosts = [];
     for (const post of reservas) {
-      if (post.horario.pelicula.title.toLowerCase().indexOf(nombre_pelicula.toLowerCase()) > -1) {
-        if (post.horario.fecha.toLowerCase().indexOf(fecha.toLowerCase()) > -1) {
+      if (
+        post.horario.pelicula.title
+          .toLowerCase()
+          .indexOf(nombre_pelicula.toLowerCase()) > -1
+      ) {
+        if (
+          post.horario.fecha.toLowerCase().indexOf(fecha.toLowerCase()) > -1
+        ) {
           resultPosts.push(post);
         }
-      };
-    };
+      }
+    }
     return resultPosts;
   }
 }

@@ -1,0 +1,24 @@
+<div id="accordion">
+    <div class="card" *ngFor="let item of teatro; let i = index">
+        <div *ngFor="let c of horarios">
+
+
+            <div class="card-header" id="headingOne"
+                *ngIf="c.estado == 'Activo' && c.sala.teatro.nombre == item.nombre">
+                <h5 class="mb-1">
+                    <button class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#teatro'+i"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        {{item.nombre }}
+                    </button>
+                </h5>
+            </div>
+
+            <div [id]="'teatro'+i" class="collapse" aria-labelledby="headingOne" data-parent="#accordion"
+                *ngIf="c.estado == 'Activo' && c.sala.teatro.nombre == item.nombre">
+                <div class="card-body">
+                    <app-room></app-room>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

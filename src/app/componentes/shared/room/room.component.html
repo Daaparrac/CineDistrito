@@ -1,0 +1,66 @@
+<div class="row mt-0 mb-3">
+    <div class="col">
+        <button type="button" class="btn btn-outline-danger active" (click)="selectFecha(today)">Hoy</button>
+        <button type="button" class="btn btn-outline-danger ml-3" (click)="selectFecha(man)">Mañana</button>
+        <button type="button" class="btn btn-outline-danger ml-3"
+            (click)="selectFecha(man_1)">{{ man_1 | date }}</button>
+        <button type="button" class="btn btn-outline-danger ml-3"
+            (click)="selectFecha(man_2)">{{ man_2 | date }}</button>
+        <button type="button" class="btn btn-outline-danger ml-3"
+            (click)="selectFecha(man_3)">{{ man_3 | date }}</button>
+    </div>
+</div>
+<div *ngIf="oculta">
+    <div class="card bg-dark">
+        <div class="card-header text-center text-white">
+            PANTALLA
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row justify-content-md-center">
+            <div class="col-1 m-0 mt-1" *ngFor="let item of reservas | filter : 'General'">
+                <button type="button" (click)="save(item)" *ngIf="item.estado != 'ocupado'"
+                    class="btn btn-outline-danger p-4"></button>
+                <button type="button" *ngIf="item.estado == 'ocupado'"
+                    class="btn btn-outline-danger p-4 active"></button>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row justify-content-md-center">
+            <div class="col-1 m-0 mt-1" *ngFor="let item of reservas | filter : 'Preferencial'">
+                <button type="button" (click)="save(item)" *ngIf="item.estado != 'ocupado'"
+                    class="btn btn-outline-primary p-4 "></button>
+                <button type="button" *ngIf="item.estado == 'ocupado'"
+                    class="btn btn-outline-primary p-4 active"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!oculta">
+    <form #nuevaReserva="ngForm" (ngSubmit)="guardar(reserva)">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="document">Documento</label>
+                <input type="text" name="documento_usuario" class="form-control" [(ngModel)]="reserva.documento_usuario"
+                    placeholder="Numero de Documento">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="name_user">Nombre Completo</label>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="reserva.nombre"
+                    placeholder="Nombre Completo">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="document">Silla</label>
+                <input type="text" name="silla" class="form-control" [(ngModel)]="reserva.silla" disabled>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="name_user">Categoria</label>
+                <input type="text" class="form-control" name="silla_tipo" [(ngModel)]="reserva.silla_tipo" disabled>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear Reserva</button>
+    </form>
+</div>

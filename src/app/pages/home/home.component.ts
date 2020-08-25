@@ -20,9 +20,10 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._moviesService
-      .getMovies()
-      .subscribe((data) => (this.peliculas = data));
+    this._moviesService.getMovies().subscribe((data) => {
+      this.peliculas = data;
+      console.log(data);
+    });
     this._rest.getAllTeatros().subscribe((res) => (this.teatro = res));
   }
 }

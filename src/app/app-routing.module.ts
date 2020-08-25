@@ -11,47 +11,62 @@ import { NewRoomComponent } from './pages/admin/new/new-room/new-room.component'
 import { SearchRoomComponent } from './pages/admin/search/search-room/search-room.component';
 import { NewHourComponent } from './pages/admin/new/new-hour/new-hour.component';
 import { SearchHourComponent } from './pages/admin/search/search-hour/search-hour.component';
+import { MovieComponent } from './pages/movie/movie.component';
 
 const routes: Routes = [
   {
-    path: 'home', component: HomeComponent
+    path: 'home',
+    component: HomeComponent,
   },
   {
-    path: 'admin', component: DashboardComponent
+    path: 'admin',
+    component: DashboardComponent,
   },
   {
-    path: 'admin/new/theater/:id', component: NewTheaterComponent
+    path: 'pelicula/:id',
+    component: MovieComponent,
   },
   {
-    path: 'admin/search/theater', component: SearchTheaterComponent
+    path: 'admin/new/theater/:id',
+    component: NewTheaterComponent,
   },
   {
-    path: 'admin/new/movie/:id', component: NewMovieComponent
+    path: 'admin/search/theater',
+    component: SearchTheaterComponent,
   },
   {
-    path: 'admin/search/movie', component: SearchMovieComponent
+    path: 'admin/new/movie/:id',
+    component: NewMovieComponent,
   },
   {
-    path: 'admin/new/room/:id', component: NewRoomComponent
+    path: 'admin/search/movie',
+    component: SearchMovieComponent,
   },
   {
-    path: 'admin/search/room', component: SearchRoomComponent
+    path: 'admin/new/room/:id',
+    component: NewRoomComponent,
   },
   {
-    path: 'admin/new/hour/:id', component: NewHourComponent
+    path: 'admin/search/room',
+    component: SearchRoomComponent,
   },
   {
-    path: 'admin/hour/room', component: SearchHourComponent
+    path: 'admin/new/hour/:id',
+    component: NewHourComponent,
   },
-  { 
-    path: '**', pathMatch: 'full', redirectTo: 'home' 
+  {
+    path: 'admin/hour/room',
+    component: SearchHourComponent,
   },
-
-
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

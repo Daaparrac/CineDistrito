@@ -3,13 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [
-    NavbarComponent
-  ],
-  imports: [
-    CommonModule,
-  ],exports: [
-    NavbarComponent
-  ]
+  declarations: [NavbarComponent],
+  imports: [CommonModule],
+  exports: [NavbarComponent],
 })
-export class ComponentesModule { }
+export class ComponentesModule {}

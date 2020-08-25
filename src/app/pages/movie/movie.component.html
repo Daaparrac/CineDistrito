@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="container mt-2">
+  <div class="card mb-3">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img [src]="pelicula.img" class="card-img" alt="..." />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">{{ pelicula.title }}</h4>
+          <p class="card-text">{{ pelicula.des }}</p>
+          <p class="card-text">
+            Reparto: <small class="text-muted">{{ pelicula.reparto }}</small>
+          </p>
+          <blockquote class="blockquote mb-3">
+            <footer class="blockquote-footer">
+              {{ pelicula.clasificacion }}
+            </footer>
+          </blockquote>
+          <app-cinemas></app-cinemas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
