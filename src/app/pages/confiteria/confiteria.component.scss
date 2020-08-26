@@ -7,8 +7,7 @@ body{margin:0; padding:0; font-size:12px; font-family:verdana, Arial, Helvetica,
 .right{text-align:right;}
 .nostart{margin:0; padding:0; list-style-type:none;}
 
-.clear{clear:both;}
-br.clear{clear:both; margin-top:-15px;}
+
 
 a{outline:none; text-decoration:none;}
 
@@ -20,18 +19,6 @@ img{margin:0; padding:0; border:0;}
 .imgl{margin:0 8px 8px 0; clear:left;}
 .imgr{margin:0 0 8px 8px; clear:right;}
 
-/* ----------------------------------------------Wrapper------------------------------------- */
-
-div.wrapper{display:block; width:100%; margin:0; text-align:left;}
-div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, div.wrapper h6{margin:0 0 20px 0; padding:0 0 8px 0; font-size:22px; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; border-bottom:1px dashed #DDDDDD;}
-.col1{color:#000000; background-color:#ffffff;}
-.col2{color:#000000; background-color:#ffffff;}
-.col3{color:#000000; background-color:#ffffff;}
-.col4{color:#000000; background-color:#ffffff;}
-.col5{color:#000000; background-color:#ffffff;}
-.col5 a{color:#000000; background-color:#ffffff;}
-.col6{color:#000000; background-color:#1B1B1B;}
-.col7, .col7 a{color:#000000; background-color:#2E2E2E;}
 
 /* ----------------------------------------------Generalise------------------------------------- */
 
@@ -41,13 +28,6 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 #topbar{height:25px; padding:10px 0;}
 
-/* ----------------------------------------------Header------------------------------------- */
-
-#header{z-index:1000; padding:0 0 20px 0; font-family:Georgia, "Times New Roman", Times, serif;}
-#header #logo{display:block; float:left; width:300px;}
-#header h1, #header p{margin:0; padding:0; border:none; clear:left; font-size:16px;}
-#header h1{margin-bottom:5px; font-size:36px;}
-#header h1 a{color:#000000; background-color:#ffffff;}
 
 /* ----------------------------------------------Header------------------------------------- */
 
@@ -129,16 +109,6 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 #officialdetails li.last{margin-bottom:20px;}
 #contactdetails{float:right}
 
-/* ----------------------------------------------Copyright------------------------------------- */
-
-#copyright{padding:20px 0;}
-#copyright p{display:block; float:right; text-align:right; margin:0; padding:0; width:200px;}
-#copyright ul{display:block; float:left; margin:0; padding:0; width:700px;}
-#copyright li{display:inline; margin-right:8px; padding-right:10px; border-right:1px solid #CCCCCC;}
-#copyright li.last{margin-right:0; padding-right:0; border-right:none;}
-
-form, fieldset, legend{margin:0; padding:0; border:none;}
-legend{display:none;}
 
 /* ----------------------------------------------Search Form------------------------------------- */
 
