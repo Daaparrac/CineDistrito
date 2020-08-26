@@ -23,6 +23,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { RoomComponent } from './componentes/shared/room/room.component';
 import { CinemasComponent } from './componentes/shared/cinemas/cinemas.component';
 import { ConfiteriaComponent } from './pages/confiteria/confiteria.component';
+import { LoginComponent } from './pages/admin/login/login.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ConfiteriaComponent } from './pages/confiteria/confiteria.component';
     RoomComponent,
     CinemasComponent,
     ConfiteriaComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

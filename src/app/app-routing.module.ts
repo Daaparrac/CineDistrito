@@ -13,6 +13,7 @@ import { NewHourComponent } from './pages/admin/new/new-hour/new-hour.component'
 import { SearchHourComponent } from './pages/admin/search/search-hour/search-hour.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { ConfiteriaComponent } from './pages/confiteria/confiteria.component';
+import { LoginComponent } from './pages/admin/login/login.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: 'confiteria',
     component: ConfiteriaComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: '**',
