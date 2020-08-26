@@ -22,6 +22,7 @@ import { MovieComponent } from './pages/movie/movie.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { RoomComponent } from './componentes/shared/room/room.component';
 import { CinemasComponent } from './componentes/shared/cinemas/cinemas.component';
+import { ConfiteriaComponent } from './pages/confiteria/confiteria.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CinemasComponent } from './componentes/shared/cinemas/cinemas.component
     FilterPipe,
     RoomComponent,
     CinemasComponent,
+    ConfiteriaComponent,
   ],
   imports: [
     BrowserModule,

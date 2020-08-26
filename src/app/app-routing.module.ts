@@ -12,6 +12,7 @@ import { SearchRoomComponent } from './pages/admin/search/search-room/search-roo
 import { NewHourComponent } from './pages/admin/new/new-hour/new-hour.component';
 import { SearchHourComponent } from './pages/admin/search/search-hour/search-hour.component';
 import { MovieComponent } from './pages/movie/movie.component';
+import { ConfiteriaComponent } from './pages/confiteria/confiteria.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path: 'admin/hour/room',
     component: SearchHourComponent,
+  },
+  {
+    path: 'confiteria',
+    component: ConfiteriaComponent,
   },
   {
     path: '**',
